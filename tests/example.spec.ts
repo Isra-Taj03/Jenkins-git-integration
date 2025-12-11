@@ -11,6 +11,7 @@ test('get started link', async ({ page }) => {
   await page.goto('https://www.google.com');
 
   // Click the get started link.
+  console.log("Testing for jenkins-integrtion-With-Git..................");
   await expect(page.getByRole('img', { name: 'Seasonal holidays' })).toBeVisible();
   // await page.getByRole('link', { name: 'Get started' }).click();
 
