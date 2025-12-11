@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { junit } from 'node:test/reporters';
 
 /**
  * Read environment variables from file.
@@ -22,7 +23,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html',{open:'never'}], ['junit',{outputpath:'test-results/junit-report.xml'}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
